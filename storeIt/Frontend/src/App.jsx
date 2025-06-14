@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import HomePage from './pages/HomePage'
+import Dashboard from './pages/Dashboard'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,10 @@ function App() {
     {
       path: '/signup',
       element: <><Navbar/><SignUp/></>,
+    },
+    {
+      path: '/dashboard',
+      element: <><Dashboard /></>,
     }
   ])
 
