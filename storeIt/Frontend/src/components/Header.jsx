@@ -3,6 +3,16 @@ import { IoIosSearch } from "react-icons/io";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { GoSidebarExpand } from "react-icons/go";
 import { SignedIn, UserButton, SignedOut, SignInButton} from "@clerk/clerk-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetFooter,
+  SheetClose,
+} from "@/components/ui/sheet"
 
 const Header = () => {
   const handleUpload = ({file}) => {
@@ -31,7 +41,35 @@ const Header = () => {
         <p>Upload</p>
       </button>
       <button className='lg:hidden'>
-        <GoSidebarExpand />
+        <Sheet>
+      <SheetTrigger asChild>
+        <button><GoSidebarExpand /></button>
+      </SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Edit profile</SheetTitle>
+          <SheetDescription>
+            Make changes to your profile here. Click save when you&apos;re done.
+          </SheetDescription>
+        </SheetHeader>
+        <div className="grid flex-1 auto-rows-min gap-6 px-4">
+          <div className="grid gap-3">
+            <label htmlFor="sheet-demo-name">Name</label>
+            <input id="sheet-demo-name" defaultValue="Pedro Duarte" />
+          </div>
+          <div className="grid gap-3">
+            <label htmlFor="sheet-demo-username">Username</label>
+            <input id="sheet-demo-username" defaultValue="@peduarte" />
+          </div>
+        </div>
+        <SheetFooter>
+          <button type="submit">Save changes</button>
+          <SheetClose asChild>
+            <button variant="outline">Close</button>
+          </SheetClose>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
       </button>
       <header>
             <SignedIn>
